@@ -3,7 +3,8 @@ module Main where
 import System.Environment
 import qualified Data.ByteString.Lazy.Char8 as B
 import RSA (encrypt, decrypt)
-import PipeLine (pipeline)
+import PipeLine
+import RateLimiting
 
 main :: IO () 
 main = do
@@ -15,7 +16,7 @@ main = do
     "encrypt" -> B.putStr (encrypt n e text)
     "decrypt" -> B.putStr (decrypt n d text)
     "pipeline" -> B.putStr (pipeline n e d text)
-
+    "rated_pipeline" -> B.putStr (ratedPipeline n e d text)
 
 -- example keys, created by makeKey 
 n, d, e :: Integer

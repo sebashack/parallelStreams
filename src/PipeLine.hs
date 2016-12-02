@@ -1,6 +1,6 @@
 {-# LANGUAGE BangPatterns, CPP #-}
 
-module PipeLine where
+module PipeLine (pipeline) where
 
 import Control.DeepSeq
 import Control.Monad.Par.Scheds.Trace
@@ -11,6 +11,7 @@ import RSA hiding (encrypt, decrypt)
 -- Explicit representation of a Stream
 
 data IList a = Nil | Cons a (IVar (IList a))
+
   
 type Stream a = IVar (IList a)
 

@@ -8,3 +8,8 @@ the Eval Monad or 2) DataFlow Parallelism with the Par Monad.
 This example is taken from Parallel And Concurrent Haskell and shows both
 approaches in the optimization of the RSA algorithm for encryption and
 decryption.
+
+Also note that in this example I'm implementing the suggested Rate-Limiting
+for the Producers in the pipeline. This is a nice utility when the producers
+are way faster than the consumers. Thus rating their stream-production avoids
+having a great overhead in the heap due to garbage collection.
